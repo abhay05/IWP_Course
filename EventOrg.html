@@ -1,0 +1,122 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html>
+<head>
+<title>
+Organize Event
+</title>
+
+<style>
+body{
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+	font-size: 14px;
+    line-height: 1.42857143;
+	margin:0;
+}
+label{
+display: inline-block;
+    max-width: 100%;
+    margin-bottom: 15px;
+    font-weight:600;
+	color: #337ab7;
+}
+#head
+{
+	height:70px;
+	width:100%; /* or width:auto*/
+	background-color:#3c8dbc;
+	text-align:center;
+	postion:absolute;
+}
+#eventform{left:40%; position:relative;width:382px;height:auto;    border-color: #5DADE2;margin:5px 0px;
+    border-width: 2px;
+    border-style: ridge;padding:10px;}
+	#eventform > div{padding:10px;}
+  
+input,select{margin-bottom:30px;}
+.btn{
+display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+	overflow:visible;
+	border:1px solid #d43f3a;
+	border-radius:4px;
+	left:20%;
+}
+.btn-send {
+    color: #fff;
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+}
+.btn-announce {
+    color: #fff;
+    background-color: 244F06;
+    border-color: 244F06;
+}
+</style>
+
+</head>
+
+<body>
+<header id="head">
+
+<h3 class="pl" style="color: #fff; font-size:20px">V-TOP</h3>
+</header>
+<div id="main">
+<div id="body">
+<div id="eventform">
+<div id="form-ele">
+<label for="event">Select Type Of Event</label><br/>
+<div style="width:100%;">
+<select id="event" style="-webkit-appearance:button;-webkit-user-select: none;appearance: none;height:30px;width:100%;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png); 
+   background-repeat: no-repeat;
+   background-position: 97% center;">
+<option>Select an option</option>
+<option>Workshop</option>
+<option>Training Session</option>
+<option>Some Other</option>
+</select>
+</div>
+<div>
+<label for="2">
+Select Date</label><br/>
+<input type="date" id="2" style="width:100%;height:30px;"/>
+</div>
+<div>
+<label for="time">Select Time</label><br/>
+<input type="time" id="time" style="width:100%;height:30px;"/>
+</div>
+<div><label for="venue">
+Select Venue</label>
+<select id="venue" style="-webkit-appearance:button;-webkit-user-select: none;appearance: none;height:30px;width:100%;
+   background-image: url(http://i62.tinypic.com/15xvbd5.png); 
+   background-repeat: no-repeat;
+   background-position: 97% center;">
+<option>Select an option</option>
+<option>SJT</option>
+<option>SMV</option>
+<option>TT</option>
+</select>
+</div>
+<br/>
+<div >
+
+<button class="btn btn-send" type="button" style="display:inline">Send request to HOD</button>
+
+
+<button type="button" class="btn btn-announce" style="display:inline;margin:20px;">Announce Event</button>
+
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

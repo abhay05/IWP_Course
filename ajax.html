@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<form id="frm" name="frm" method ="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+<input type="text" name="vill" id="vill">
+<input type="submit" name="search" id="search"/>
+</form>
+<div id="res"></div>
+</body>
+
+</html>
+
+<script type="text/javascript">
+var t=document.getElementById("search");
+
+t.addEventListener("onchange",look);
+
+function look(){
+	
+	var x=t.value();
+	if(x==""){document.getElementById("res")="";return ;}
+	else
+		var xhr;
+		if(window.XMLHttpRequest){
+			xhr = new XMLHttpRequest();
+			
+			
+		}
+		xhr.onreadystatechange=function(){
+			if(this.readyState==4 && this.status==200){
+				document.getELementById("res").innerHTML=this.responseText;
+			}
+		}
+		xhr.open("GET","get.php?q="+x,true);
+		xhr.send();
+	}
+	
+}
+</script>

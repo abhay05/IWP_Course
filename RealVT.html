@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+“http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd”>
+<html>
+<head>
+<title>
+VTOP
+</title>
+<link rel="stylesheet" type="text/css" href="m.css" />
+
+</head>
+<body>
+<header id="head">
+<img src="images/logom.png" class="d" alt="User Image" width="200" height="70" />
+<h3 class="pl" style="color: #fff; font-size: 24px;float:right">V-TOP</h3>
+</header>
+<div id="table">
+<div class="fr">
+<h3>V-TOP Login</h3>
+</div>
+<div id="input">
+<input type="text" name="uname" id="1" placeholder="Username"/><br/><br/>
+<input type="password" name="pass" id="2" placeholder="Password"/><br/><br/>
+<!--<input type="text" id="3" placeholder="CAPTCHA"/><br/>-->
+<!--<button class="button">Button</button>-->
+<div id="signin"><button class="sign" type="submit" id="4" name="submit">Sign in</button></div>
+</div>
+</div>
+<footer>
+<div>
+<div class="right">
+					<b>Software Development Cell(SDC)</b>
+				</div>
+<strong>Copyright &copy; 2018 <a href="http://www.vit.ac.in" target="_blank">VIT</a></strong></div>
+</footer>
+</body>
+</html>
+
+<?php
+if(isset($_POST['submit'])){
+	
+	include 'dbconnection.php';
+	$conn=openconn();
+	$name=$_POST['uname'];
+	$password=$_POST['pass'];
+	
+	$val = "select username,password from credentials where username = '".$name."' AND password = '".$password."'";
+	
+	$result=$conn->query($val) or die($conn->error);
+	
+	if($result->num_rows>0){
+		$_SESSION["logged_in"]=true;
+		$_SESSION["naam"]=$name;
+		
+		//echo mysql_error();
+	}
+    else{echo "Username or Password is invalid";}
+	if($_SESSION["logged_in"]){
+		echo "logged in";
+		header('Location: http://localhost/member.php?'.$_SESSION['naam']);
+		/*
+		$dir="pics/".$_SESSION["naam"]."/";
+		
+		if(is_dir($dir)){
+			//echo "1";
+			if($dh=opendir($dir)){
+				while(($file=readdir($dh))!=false){
+					echo $file."<br/>";
+				}
+				echo "<a href='#'>Download</a>";
+				closedir($dh);
+			}
+			
+		}*/
+		exit;
+	}
+	
+}
+?>

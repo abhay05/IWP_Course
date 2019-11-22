@@ -1,0 +1,63 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="vmenu.css">
+<link rel="stylesheet" type="text/css" href="main.css">
+<style>
+#welcome{
+	color:skyblue;
+	position:absolute;
+	left:40%;
+	top:40%;
+	font-size:2em;
+}
+#logout{
+	bottom:15px;
+	right:15px;
+}
+</style>
+</head>
+
+<body>
+<div id="main">
+<div id="head">
+<div id="v">VIT</div>
+<form id="frm" name="frm" method="post">
+<div id="logout" >
+<button name="signout">Logout</button>
+<!--<div id="dp" class="dropdown">
+<div id="image">
+
+</div>
+<div id="lg">
+Logout
+</div>
+</div>-->
+</div>
+</form>
+<?php
+if(isset($_POST['signout'])){
+	session_destroy();
+	header('Location:RealVT.php');
+}
+?>
+</div>
+<div id="s">
+<ul>
+<li><a href="#"><span id="s1">Research</span>
+<ul>
+<li><a href="research.php"><span class="ss1">Papers</span></a></li>
+</ul>
+</li>
+<li><a href="books.php"><span class="ss1">Books</span></a></li>
+<li><a href="workshops.php"><span class="ss1">Workshops</a></span></li>
+<li><a href="trainingSessions.php"><span class="ss1">Training Sessions</a></span></li>
+<li><a href="awards.php"><span class="ss1">Awards</a></span></li>
+<li><a href="experience.php"><span class="ss1">Experience</a></span></li>
+</ul>
+</div>
+<div id="welcome">
+<h1>WELCOME</h1>
+</div>
+</div>
+</body>
+</html>
